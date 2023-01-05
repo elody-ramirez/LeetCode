@@ -22,12 +22,14 @@
 # Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
 class Solution(object):
-    def isAnagram(self, s, t):
-        """
-        :type s: str
-        :type t: str
-        :rtype: bool
-        """
+  def isAnagram(self, s, t):
+    """
+    :type s: str
+    :type t: str
+    :rtype: bool
+    """
+    return True if sorted(s) == sorted(t) else False
+        
 
 Solution().isAnagram("anagram", "nagaram")             # true
 Solution().isAnagram("rat", "car")                     # false
