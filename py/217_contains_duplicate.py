@@ -21,16 +21,16 @@
 # -109 <= nums[i] <= 109
 
 class Solution(object):
-  def containsDuplicate(self, nums):
-    """
-    :type nums: List[int]
-    :rtype: bool
-    """
-    s = set(nums)
-    if len(s) == len(nums):
-        return False
-    else:
-        return True
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        s = set(nums)
+        if len(s) == len(nums):
+            return False
+        else:
+            return True
 
 Solution().containsDuplicate([2, 14, 18, 22, 22])              # true
 Solution().containsDuplicate([1, 2, 3, 4])                     # false

@@ -22,7 +22,7 @@
 # 0 <= k <= 105
 
 class Solution(object):
-  def containsNearbyDuplicate(self, nums, k):
+  def contains_nearby_duplicate(self, nums, k):
     """
     :type nums: List[int]
     :type k: int
@@ -35,6 +35,6 @@ class Solution(object):
       index_map[num] = i
     return False
 
-Solution().containsDuplicate([1, 2, 3, 1], 3)                     # true
-Solution().containsDuplicate([1, 0, 1, 1], 1)                     # true
-Solution().containsDuplicate([1, 2, 3, 1, 2, 3], 2)               # false
+Solution().contains_nearby_duplicate([1, 2, 3, 1], 3)                     # true
+Solution().contains_nearby_duplicate([1, 0, 1, 1], 1)                     # true
+Solution().contains_nearby_duplicate([1, 2, 3, 1, 2, 3], 2)               # false

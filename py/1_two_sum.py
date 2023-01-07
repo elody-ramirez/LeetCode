@@ -33,7 +33,7 @@
 # Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 
 class Solution(object):
-    def twoSum(self, nums, target):
+    def two_sum(self, nums, target):
         """
         :type nums: List[int]
         :type target: int
@@ -47,4 +47,4 @@ class Solution(object):
             index_map[num] = i
         return []
 
-print(Solution().twoSum([2, 14, 18, 22, -22], -4))              # [2, 4]
+print(Solution().two_sum([2, 14, 18, 22, -22], -4))              # [2, 4]
