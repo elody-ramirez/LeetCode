@@ -26,6 +26,25 @@
 # 1 <= s.length <= 104
 # s consists of parentheses only '()[]{}'.
 
+# FIRST SOLUTION--------
+# class Solution(object):
+#     def is_valid(self, s):
+#         """
+#         :type s: str
+#         :rtype: bool
+#         """
+#         pairs = {')': '(', '}': '{', ']': '['}
+#         stack = []
+#         for c in s:
+#             if c in pairs:
+#                 if stack and stack[-1] == pairs[c]:
+#                     stack.pop()
+#                 else:
+#                     return False
+#             else:
+#                 stack.append(c)
+#         return True if not stack else False
+
 class Solution(object):
     def is_valid(self, s):
         """
@@ -35,14 +54,12 @@ class Solution(object):
         pairs = {')': '(', '}': '{', ']': '['}
         stack = []
         for c in s:
-            if c in pairs:
-                if stack and stack[-1] == pairs[c]:
-                    stack.pop()
-                else:
-                    return False
-            else:
+            if c in '([{':
                 stack.append(c)
-        return True if not stack else False
+            elif len(stack) == 0 or stack.pop() != pairs[c]:
+                return False
+        if len(stack) == 0:
+            return True
 
-string = '{}'
+string = '{([])})'
 print(Solution().is_valid(string))        # True
