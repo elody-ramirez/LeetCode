@@ -44,8 +44,8 @@ class Solution(object):
         current = head
 
         while current:
-            temp = current.next
+            nxt = current.next
             current.next = prev
             prev = current
-            current = temp
+            current = nxt
         return prev
