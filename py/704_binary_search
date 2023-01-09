@@ -25,6 +25,7 @@
 # All the integers in nums are unique.
 # nums is sorted in ascending order.
 
+# O(log(N)) Time 0(1) Space Complexity
 class Solution(object):
     def search(self, nums, target):
         """
