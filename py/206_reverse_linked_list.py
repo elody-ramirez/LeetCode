@@ -25,16 +25,14 @@
 
 # Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
 
-
-# O(N) Time 0(1) Space Complexity
-
-
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
 class Solution(object):
+    # O(N) Time 0(1) Space Complexity
+    # Iteration Solution
     def reverseList(self, head):
         """
         :type head: ListNode
@@ -49,3 +47,22 @@ class Solution(object):
             prev = current
             current = nxt
         return prev
+        
+
+    # O(N) Time 0(N) Space Complexity
+    # Recursive Solution
+    # def reverseList(self, head):
+    #      """
+    #      :type head: ListNode
+    #      :rtype: ListNode
+    #      """
+    #      if not head:
+    #         return None
+
+    #     newHead = head
+    #     if head.next:
+    #         newHead = self.reverseList(head.next)
+    #         head.next.next = head
+    #     head.next = None
+        
+    #     return newHead
