@@ -42,6 +42,7 @@
 #         self.val = x
 #         self.next = None
 
+# O(N) Time 0(1) Space Complexity
 class Solution(object):
     def hasCycle(self, head):
         """
@@ -55,4 +56,20 @@ class Solution(object):
             if slow == fast:
                 return True
         return False
-
+   
+# O(N) Time 0(N) Space Complexity
+# class Solution(object):
+#     def hasCycle(self, head):
+#         """
+#         :type head: ListNode
+#         :rtype: bool
+#         """
+#         storage = {}
+#         dummy = head
+#         while dummy:
+#             if dummy not in storage:
+#                 storage[dummy] = True
+#                 dummy = dummy.next
+#             else:
+#                 return True
+#         return False
