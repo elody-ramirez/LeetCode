@@ -56,7 +56,7 @@ class Solution(object):
             if slow == fast:
                 return True
         return False
-   
+
 # O(N) Time 0(N) Space Complexity
 # class Solution(object):
 #     def hasCycle(self, head):
