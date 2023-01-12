@@ -27,6 +27,9 @@
 # strs[i] consists of lowercase English letters.
 from collections import defaultdict
 
+# O(m * n) Time 0(n) Space Complexity
+# m is the number of strings given and n is the avg length of
+# strings since we go through each character
 class Solution(object):
     def groupAnagrams(self, strs):
         """
