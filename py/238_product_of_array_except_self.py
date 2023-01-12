@@ -31,9 +31,27 @@
 # complexity? (The output array does not count as extra space
 # for space complexity analysis.)
 
+# O(N) Time 0(N) Space Complexity
 class Solution(object):
     def productExceptSelf(self, nums):
         """
         :type nums: List[int]
         :rtype: List[int]
         """
+        prefix = [1] * len(nums)
+        pre = 1
+        for i, num in enumerate(nums):
+            prefix[i] = pre
+            pre *= num
+        postfix = [1] * len(nums)
+        post = 1
+        for i in range(len(nums) -1, -1, -1):
+            postfix[i] = post
+            post *= nums[i]
+        result = [1] * len(nums)
+        for i, num in enumerate(prefix):
+            result[i] = num * postfix[i]
+        return result
+
+test = [1, 2, 3, 4]
+print(Solution().productExceptSelf(test))
