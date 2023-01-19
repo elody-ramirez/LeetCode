@@ -13,6 +13,8 @@
 # LIST
 
 from queue import LifoQueue
+from collections import deque
+
 stack = []
 
 # append() function to push
@@ -30,8 +32,6 @@ print(stack.pop())
 # Stack implementation using
 # collections.deque
 
-from collections import deque
- 
 stack = deque()
 
 # append() function to push
