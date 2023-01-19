@@ -32,9 +32,34 @@
 # 3 <= nums.length <= 3000
 # -105 <= nums[i] <= 105
 
+# O(N^2) Time 0(1) Space Complexity not counting result
 class Solution(object):
-    def threeSum(self, nums):
+    """Solution"""
+    def three_sum(self, nums):
         """
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        res = []
+        nums.sort()
+
+        for i, a in enumerate(nums):
+            if i > 0 and a == nums[i - 1]:
+                continue
+
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                t_sum = a + nums[l] + nums[r]
+                if t_sum > 0:
+                    r -= 1
+                elif t_sum < 0:
+                    l += 1
+                else:
+                    res.append([a, nums[l], nums[r]])
+                    l += 1
+                    while nums[l] == nums[l - 1] and l < r:
+                        l += 1
+        return res
+
+input1 = [-1, 0, 1, 2, -1, -4]
+print(Solution().three_sum(input1))  # Output: [[-1, -1, 2], [-1, 0, 1]]
