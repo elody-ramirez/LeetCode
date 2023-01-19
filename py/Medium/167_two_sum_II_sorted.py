@@ -47,16 +47,16 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        l = 0
-        r = len(numbers) - 1
+        l, r = 0, len(numbers) - 1
+
         while l < r:
-            if target == numbers[l] + numbers[r]:
-                break
-            elif target < numbers[l] + numbers[r]:
+            cur_sum = numbers[l] + numbers[r]
+            if target > cur_sum:
+                l += 1
+            elif target < cur_sum:
                 r -= 1
             else:
-                l += 1
-        return [l + 1, r + 1]
+                return [l + 1, r + 1]
 
 nums = [2, 7, 11, 15]
 print(Solution().two_sum(nums, 9))      # Output: [1, 2]
