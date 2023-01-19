@@ -39,6 +39,7 @@
 # Methods pop, top and getMin operations will always be called on non-empty stacks.
 # At most 3 * 104 calls will be made to push, pop, top, and getMin.
 
+# 0(1) Time complexity for all methods
 class MinStack(object):
     """MinStack"""
 
