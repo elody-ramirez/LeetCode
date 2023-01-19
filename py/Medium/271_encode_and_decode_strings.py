@@ -18,7 +18,8 @@
 # Explanation:
 # One possible encode method is: "we:;say:;:::;yes"
 
-# O(N) Time 0(1) Space Complexity for encode and decode. N is the total number of characters in the list of words
+# O(N) Time 0(1) Space Complexity for encode and decode. N is the
+# total number of characters in the list of words
 class Solution:
     """
     Solution
@@ -35,20 +36,20 @@ class Solution:
             res += str(len(s)) + '#' + s
         return res
 
-    def decode(self, str):
+    def decode(self, string):
         # write your code here
         """
-        @param: str: A string
+        @param: string: A string
         @return: dcodes a single string to a list of strings
         """
         res, i = [], 0
         
-        while i < len(str):
+        while i < len(string):
             j = i 
-            while str[j] != '#':
+            while string[j] != '#':
                 j += 1
-            length = int(str[i:j])
-            res.append(str[j + 1 : j + 1 + length])
+            length = int(string[i:j])
+            res.append(string[j + 1 : j + 1 + length])
             i = j + 1 + length
         return res
 
