@@ -11,17 +11,18 @@
 # The input represents a valid arithmetic expression in a reverse polish notation.
 # The answer and all the intermediate calculations can be represented in a 32-bit integer.
 
-
 # Example 1:
 
 # Input: tokens = ["2", "1", "+", "3", "*"]
 # Output: 9
 # Explanation: ((2 + 1) * 3) = 9
+
 # Example 2:
 
 # Input: tokens = ["4", "13", "5", "/", "+"]
 # Output: 6
 # Explanation: (4 + (13 / 5)) = 6
+
 # Example 3:
 
 # Input: tokens = ["10", "6", "9", "3", "+",
@@ -35,7 +36,6 @@
 # = 17 + 5
 # = 22
 
-
 # Constraints:
 
 # 1 <= tokens.length <= 104
@@ -48,3 +48,19 @@ class Solution(object):
         :type tokens: List[str]
         :rtype: int
         """
+        stack = []
+        for c in tokens:
+            if c not in "+-/*":
+                stack.append(int(c))
+            else:
+                a, b = stack.pop(), stack.pop()
+                if c == '+':
+                    stack.append(a + b)
+                elif c == "-":
+                    stack.append(b - a)
+                elif c == "*":
+                    stack.append(a * b)
+                else:
+                    stack.append(round(b / a, 0))
+        return stack[0]
+    
