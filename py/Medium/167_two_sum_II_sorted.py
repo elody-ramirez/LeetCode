@@ -38,6 +38,7 @@
 # -1000 <= target <= 1000
 # The tests are generated such that there is exactly one solution.
 
+# O(N) Time 0(1) Space Complexity
 class Solution(object):
     """Solution"""
     def two_sum(self, numbers, target):
@@ -46,3 +47,20 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        l = 0
+        r = len(numbers) - 1
+        while l < r:
+            if target == numbers[l] + numbers[r]:
+                break
+            elif target < numbers[l] + numbers[r]:
+                r -= 1
+            else:
+                l += 1
+        return [l + 1, r + 1]
+
+nums = [2, 7, 11, 15]
+print(Solution().two_sum(nums, 9))      # Output: [1, 2]
+nums = [2, 3, 4]
+print(Solution().two_sum(nums, 6))      # Output: [1, 3]
+nums = [-1, 0]
+print(Solution().two_sum(nums, -1))     # Output: [1, 2]
