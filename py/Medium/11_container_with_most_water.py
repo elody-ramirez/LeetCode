@@ -29,6 +29,7 @@
 # 2 <= n <= 105
 # 0 <= height[i] <= 104
 
+# O(N) Time 0(1) Space Complexity
 class Solution(object):
     """Solution"""
     def max_area(self, height):
@@ -36,3 +37,19 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
+        res = 0
+        l, r = 0, len(height) - 1
+
+        while l < r:
+            area = min(height[l], height[r]) * (r - l)
+            res = max(res, area)
+
+            if height[l] < height[r]:
+                l += 1
+            else:
+                r -= 1
+
+        return res
+
+input1 = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+print(Solution().max_area(input1))              # Output: 49
