@@ -4,8 +4,6 @@
 
 # Please implement encode and decode
 
-# Wechat reply 【Google】 get the latest requent Interview questions. (wechat id : jiuzhang1104)
-
 # Example1
 
 # Input: ["lint","code","love","you"]
@@ -20,6 +18,7 @@
 # Explanation:
 # One possible encode method is: "we:;say:;:::;yes"
 
+# O(N) Time 0(1) Space Complexity for encode and decode. N is the total number of characters in the list of words
 class Solution:
     """
     Solution
@@ -31,6 +30,10 @@ class Solution:
         @param: strs: a list of strings
         @return: encodes a list of strings to a single string.
         """
+        res = ""
+        for s in strs:
+            res += str(len(s)) + '#' + s
+        return res
 
     def decode(self, str):
         # write your code here
@@ -38,3 +41,24 @@ class Solution:
         @param: str: A string
         @return: dcodes a single string to a list of strings
         """
+        res, i = [], 0
+        
+        while i < len(str):
+            j = i 
+            while str[j] != '#':
+                j += 1
+            length = int(str[i:j])
+            res.append(str[j + 1 : j + 1 + length])
+            i = j + 1 + length
+        return res
+
+input1 = ["lint", "code", "love", "you"]
+input2 = ["we", "say", ":", "yes"]
+
+encoded1 = Solution().encode(input1)
+encoded2 = Solution().encode(input2)
+print(encoded1)
+print(encoded2)
+
+print(Solution().decode(encoded1))
+print(Solution().decode(encoded2))
