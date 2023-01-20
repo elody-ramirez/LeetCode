@@ -59,6 +59,7 @@
 # All the values of position are unique.
 # 0 < speed[i] <= 106
 
+# O(nlog(n)) time O(N) space
 class Solution(object):
     """Solution"""
     def car_fleet(self, target, position, speed):
@@ -68,3 +69,13 @@ class Solution(object):
         :type speed: List[int]
         :rtype: int
         """
+
+        pair = [[p, s] for p, s in zip(position, speed)]
+
+        stack = []
+        for p, s in sorted(pair)[::-1]: # Reverse sorted order ::-1
+            stack.append((target - p) / s)
+            if len(stack) >= 2 and stack[-1] <= stack[-2]:
+                stack.pop()
+        return len(stack)
+    
